@@ -1,0 +1,28 @@
+class Solution {
+    public int[] plusOne(int[] d) {
+         int b[]=new int[d.length+1];
+        if(d[d.length-1]!=9){
+            d[d.length-1]++;
+            return d;
+            }else{
+            b[b.length-1]=1;
+            for(int i=d.length-1;i>=0;i--){
+                b[i+1]+=d[i];
+                if(b[i+1]>9){
+                    int temp=b[i+1];
+                    b[i+1]=temp%10;
+                    temp/=10;
+                    b[i]=temp;
+                }
+            }
+            if(b[0]==0){
+                int c[]=new int[b.length-1];
+                for(int i=1;i<b.length;i++){
+                    c[i-1]=b[i];
+                }
+                return c;
+            }
+            }
+        return b;
+        }
+        }
